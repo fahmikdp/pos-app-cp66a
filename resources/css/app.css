@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-sans text-black antialiased;
+    }
+
+    input, select, textarea {
+        color: #000000 !important;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg transition-colors;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #receipt-area, #receipt-area * {
+        visibility: visible;
+    }
+    #receipt-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+    }
+    @page {
+        size: 80mm auto;
+        margin: 0;
+    }
+}
