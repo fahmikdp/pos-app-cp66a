@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? config('app.name') }} - POS App</title>
+    <title>{{ $title ?? config('app.name') }} - Warung Soto Pelajar</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @wireUiScripts
     @livewireStyles
@@ -45,6 +45,33 @@
                     </div>
 
                     <div class="flex items-center gap-4">
+                        <div
+                            x-data="{
+                                dateTime: '',
+                                updateClock() {
+                                    const now = new Date();
+                                    const dateStr = now.toLocaleDateString('id-ID', {
+                                        weekday: 'long',
+                                        day: 'numeric',
+                                        month: 'long',
+                                        year: 'numeric'
+                                    });
+                                    const timeStr = now.toLocaleTimeString('id-ID', {
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        second: '2-digit',
+                                        hour12: false
+                                    }).replace(/\./g, ':');
+                                    this.dateTime = `${dateStr} • ${timeStr} WIB`;
+                                }
+                            }"
+                            x-init="updateClock(); setInterval(() => updateClock(), 1000)"
+                            class="hidden sm:flex items-center gap-2 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-lg shadow-sm"
+                        >
+                            <x-heroicons::outline.clock class="w-4 h-4 text-primary-600 flex-shrink-0" />
+                            <span x-text="dateTime"></span>
+                        </div>
+
                         <div class="relative" x-data="{ open: false }">
                             <button @click="open = !open" class="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900">
                                 <div class="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center text-white font-semibold text-xs">

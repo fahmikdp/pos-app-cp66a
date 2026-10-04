@@ -29,7 +29,7 @@
             <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
                 <x-heroicons::solid.shopping-cart class="w-5 h-5 text-white" />
             </div>
-            <span class="text-lg font-bold tracking-wide">POS App</span>
+            <span class="text-lg font-bold tracking-wide">Soto Pelajar</span>
         </div>
 
         {{-- Menu --}}

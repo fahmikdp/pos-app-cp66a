@@ -16,7 +16,7 @@
 | Icons | Heroicons v2 |
 | CSS Framework | Tailwind CSS v3 (darkMode: class) |
 | Charts | ApexCharts JS |
-| Database | SQLite (dev) / MySQL (prod) |
+| Database | MySQL |
 | Build Tool | Vite 5 |
 
 ---
